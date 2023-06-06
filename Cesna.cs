@@ -1,28 +1,30 @@
-using System;
 
 namespace Garage
 {
-    public class Cessna : Vehicle
+    public class Cessna : IGasVehicles
     {
         public double FuelCapacity { get; set; }
 
+        public int CurrentTankPercentage { get; set; }
+
+        public string Name { get; set; }
+        public string Engine { get; set; }
+
+        public int PassengerLimit { get; set; }
+
+        public void Move() { }
+        public void Accelerate() { }
+
         public void RefuelTank()
         {
-            // method definition omitted
+            CurrentTankPercentage = 100;
         }
 
         public Cessna()
         {
-            MainColor = "White";
+            CurrentTankPercentage = 30;
+            Name = "Cessna";
         }
 
-        public override void Drive()
-        {
-            Console.WriteLine($"The {MainColor} Cessna flashes by you like a hurricane! Zoooooom!");
-        }
-        public override void Stop()
-        {
-            Console.WriteLine($"The {MainColor} Cessna rolls to a stop after rolling a mile down the runway.");
-        }
     }
 }

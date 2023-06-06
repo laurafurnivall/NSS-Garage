@@ -1,24 +1,29 @@
-using System;
 
 namespace Garage
 {
-    public class Ram : Vehicle
+    public class Ram : IGasVehicles
     {
         public double BatteryKWh { get; set; }
+        public string Name { get; set; }
+
+        public int CurrentTankPercentage { get; set; }
+        public string Engine { get; set; }
+
+        public int PassengerLimit { get; set; }
+
+        public void Move() { }
+        public void Accelerate() { }
 
         public void RefuelTank()
         {
-            // method definition omitted
+            CurrentTankPercentage = 100;
         }
 
         public Ram()
         {
-            MainColor = "Silver";
+            CurrentTankPercentage = 25;
+            Name = "Ram";
         }
 
-        public override void Drive()
-        {
-            Console.WriteLine($"The {MainColor} Ram growls by you. Rrrrrumble!");
-        }
     }
 }

@@ -2,33 +2,30 @@ using System;
 
 namespace Garage
 {
-    public class Tesla : Vehicle
+    public class Tesla : IElectricVehicles, IVehicle
     {
         public double BatteryKWh { get; set; }
 
+        public int CurrentChargePercentage { get; set; }
+
+        public string Engine { get; set; }
+        public string Name { get; set; }
+
+        public int PassengerLimit { get; set; }
+
+        public void Move() { }
+        public void Accelerate() { }
+
         public void ChargeBattery()
         {
-            // method definition omitted
+            CurrentChargePercentage = 100;
         }
 
         public Tesla()
         {
-            MainColor = "Burgundy";
+            CurrentChargePercentage = 10;
+            Name = "Tesla";
         }
 
-        public override void Drive()
-        {
-            Console.WriteLine($"The {MainColor} Tesla blazes by you! MMmmmmm!");
-        }
-
-        public override void Turn(string direction)
-        {
-            Console.WriteLine($"The {MainColor} Tesla squeals around a {direction}! MMmmmmm!");
-        }
-
-        public override void Stop()
-        {
-            Console.WriteLine($"The {MainColor} Tesla silently stops.");
-        }
     }
 }
